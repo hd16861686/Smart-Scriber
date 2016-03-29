@@ -10,7 +10,7 @@ angular.module("SmartScribe.services", [])
 		videoSize: [640, 480, 640, 480]
 	};
 
-	localStream = Erizo.Stream(config);
+	localStream = Erizo.Stream(streamConfig);
 	/**
 	 * Generates necessary token to create rooms
 	 * @param {string} username
