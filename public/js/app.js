@@ -1,0 +1,1 @@
+angular.module("SmartScribe", ["SmartScribe.directives","SmartScribe.controllers"]);

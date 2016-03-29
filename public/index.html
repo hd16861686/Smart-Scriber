@@ -1,14 +1,21 @@
 <html>
   <head>
-    <title>Licode Basic Example</title>
+    <title>Smart Scriber</title>
     <script type="text/javascript" src="erizo.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="/node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/node_modules/gsap/src/minified/TweenMax.min.js"></script>
+
+    <script type="text/javascript" src="./js/controllers.js"></script>
+    <script type="text/javascript" src="./js/directives.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
   </head>
 
-  <body>
-    <button id="recordButton" onclick="startRecording()" disabled>Toggle Recording</button>
+  <body ng-app="SmartScribe" ng-controller="MainCtrl">
+    <!-- <button id="recordButton" onclick="startRecording()" disabled>Toggle Recording</button>
     <button id="testConnection" onclick="testConnection()">Test Connection</button>
     <div id="myVideo" style="width:320px; height: 240px;">
-    </div>
+    </div> -->
+    {{testMessage}}
+    <div id="my-video"></div>
   </body>
 </html>
