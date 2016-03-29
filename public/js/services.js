@@ -1,5 +1,5 @@
 angular.module("SmartScribe.services", [])
-.service('LicodeService', function($http){
+.service('LicodeService', function($http, $rootScope){
 	var serverUrl = "/";
 	var localStream;
 	var myVideoId = "my-video";
@@ -24,10 +24,10 @@ angular.module("SmartScribe.services", [])
 		localStream.addEventListener("access-accepted", function(){
 			var speechEvents = hark(localStream.stream, {});
 	    speechEvents.on('speaking', function(){
-	    	console.log("speaking");
+	    	$rootScope.$emit("speaking", true);
 	    });
 	    speechEvents.on('stopped_speaking', function(){
-	    	console.log('stopped speaking');
+	    	$rootScope.$emit("speaking", false);
 	    });
 
 			/**
@@ -104,8 +104,10 @@ angular.module("SmartScribe.services", [])
 	});
 
 })
-.service("SpeechRecognition", function(){
-	 
+.service("SpeechRecognition", function($rootScope){
+	$rootScope.$on("speaking", function(e, isSpeaking){
+		console.log(isSpeaking);
+	});
 	// var recognition = new webkitSpeechRecognition();
 	// // .continuous prevents speech recognition from stopping after the user stops speaking
 	// recognition.continuous = true;
