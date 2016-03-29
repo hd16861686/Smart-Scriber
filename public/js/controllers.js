@@ -1,4 +1,8 @@
 angular.module("SmartScribe.controllers", [])
 .controller('MainCtrl', ["$scope", "LicodeService", function($scope, LicodeService){
-	$scope.testMessage = "good to go";
+	$scope.isChrome = true;
+	if(!("webkitSpeechRecognition" in window)) {
+		$scope.isChrome = false;
+	}
+
 }]);

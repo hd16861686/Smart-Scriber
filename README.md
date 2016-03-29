@@ -1,0 +1,1 @@
+- Use 'git push live master' to push to deployment server

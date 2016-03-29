@@ -22,6 +22,14 @@ angular.module("SmartScribe.services", [])
 		 * Event listener for when user enables mic + video access
 		 */
 		localStream.addEventListener("access-accepted", function(){
+			var speechEvents = hark(localStream.stream, {});
+	    speechEvents.on('speaking', function(){
+	    	console.log("speaking");
+	    });
+	    speechEvents.on('stopped_speaking', function(){
+	    	console.log('stopped speaking');
+	    });
+
 			/**
 			 * When the local user has connected to the room successfully
 			 * publish your room so everyone can find your stream
@@ -95,4 +103,17 @@ angular.module("SmartScribe.services", [])
 		console.log("Could not create token : ", err);
 	});
 
+})
+.service("SpeechRecognition", function(){
+	 
+	// var recognition = new webkitSpeechRecognition();
+	// // .continuous prevents speech recognition from stopping after the user stops speaking
+	// recognition.continuous = true;
+	// // .interimResults allows the speech to change eventually
+	// recognition.interimResults = true;
+	// /**
+	//  * The function that gets called after recognition.start()
+	//  */
+	// recognition.onstart = 
+	
 });
