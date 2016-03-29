@@ -1,1 +1,1 @@
-angular.module("SmartScribe", ["SmartScribe.directives","SmartScribe.controllers"]);
+angular.module("SmartScribe", ["SmartScribe.directives","SmartScribe.controllers", "SmartScribe.services"]);
