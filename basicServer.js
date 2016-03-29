@@ -10,8 +10,9 @@ var express = require('express'),
         config = require('./../../licode_config');
 
 var options = {
-    key: fs.readFileSync('../../cert/key.pem').toString(),
-    cert: fs.readFileSync('../../cert/cert.pem').toString()
+    ca: fs.readFileSync("/ccds.design.ssl/ccds_design.ca-bundle"),
+  key: fs.readFileSync("/ccds.design.ssl/ccds.design.key"),
+  cert: fs.readFileSync("/ccds.design.ssl/ccds_design.crt")
 };
 
 var app = express();
@@ -104,4 +105,4 @@ app.use(function(req, res, next) {
 app.listen(3001);
 
 var server = https.createServer(options, app);
-server.listen(3004);
+server.listen(443);

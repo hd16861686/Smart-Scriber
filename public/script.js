@@ -38,7 +38,7 @@ window.onload = function () {
   }
   localStream = Erizo.Stream(config);
   var createToken = function(userName, role, callback) {
-    // TODO: Retrieves a token that is necessary for joining a room
+
     var req = new XMLHttpRequest();
     var url = serverUrl + 'createToken/';
     var body = {username: userName, role: role};
