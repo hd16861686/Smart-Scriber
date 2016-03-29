@@ -105,17 +105,53 @@ angular.module("SmartScribe.services", [])
 
 })
 .service("SpeechRecognition", function($rootScope){
-	$rootScope.$on("speaking", function(e, isSpeaking){
-		console.log(isSpeaking);
-	});
-	// var recognition = new webkitSpeechRecognition();
-	// // .continuous prevents speech recognition from stopping after the user stops speaking
-	// recognition.continuous = true;
-	// // .interimResults allows the speech to change eventually
-	// recognition.interimResults = true;
-	// /**
-	//  * The function that gets called after recognition.start()
-	//  */
-	// recognition.onstart = 
 	
+	var recognition = new webkitSpeechRecognition();
+	recognition.lang = "en-US";
+	// .continuous prevents speech recognition from stopping after the user stops speaking
+	recognition.continuous = true;
+	// .interimResults allows the speech to change eventually
+	recognition.interimResults = true;
+	/**
+	 * The function that gets called after recognition.start()
+	 */
+	recognition.onstart = function(){
+		console.log("speech start");
+	};
+
+	/**
+	 * The function that gets called after a result is ready
+	 * @param {obj} event
+	 */
+	recognition.onresult = function(event) {
+		var interim_transcript = '';
+
+    for (var i = event.resultIndex; i < event.results.length; ++i) {
+      if (event.results[i].isFinal) {
+        final_transcript += event.results[i][0].transcript;
+      } else {
+        interim_transcript += event.results[i][0].transcript;
+      }
+    }
+    console.log(interim_transcript);
+	};
+
+	recognition.onerror = function(event) {
+		console.log("Speech Recognition Error: ", event);
+	};
+
+	/**
+	 * Recognition has ended
+	 */
+	recognition.onend = function() {
+		console.log("speech recognition ended");
+	}
+
+	$rootScope.$on("speaking", function(e, isSpeaking){
+		if(isSpeaking){
+			recognition.start();
+		} else {
+			recognition.stop();
+		}
+	});
 });
