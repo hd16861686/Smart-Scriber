@@ -86,7 +86,7 @@ angular.module("SmartScribe.services", [])
 		var token = response.data;
 		room = Erizo.Room({token : token});
 		try {
-			initLocalStream(room);
+			configLocalStream(room);
 			localStream.init();
 		} catch (err){
 			console.log("Error: " + err);
