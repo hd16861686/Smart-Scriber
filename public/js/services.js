@@ -13,7 +13,7 @@ angular.module("SmartScribe.services", [])
 	 * Configs the local stream event listeners
 	 * @param {object} room Requires a ErizoRoom object
 	 */
-	function configLocalStream = function(room){
+	function configLocalStream(room){
 		if(!room) {
 			throw new Error("No Room to initialize local stream in");
 		}
