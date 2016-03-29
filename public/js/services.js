@@ -24,7 +24,7 @@ angular.module("SmartScribe.services", [])
 			method : "POST",
 			url : serverUrl + "createToken/",
 			headers: {
-				'Content-Type', 'application/json'
+				'Content-Type' : 'application/json'
 			},
 			data: body
 		}).then(callback, err);
