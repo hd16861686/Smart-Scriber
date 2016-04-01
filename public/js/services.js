@@ -1,5 +1,5 @@
 angular.module("SmartScribe.services", [])
-.service('LicodeService', function($http, $rootScope){
+.service('LicodeService', ["$http", "$rootScope", "SpeechRecognition", function($http, $rootScope, SpeechRecognition){
 	var serverUrl = "/";
 	var localStream;
 	var myVideoId = "my-video";
@@ -22,6 +22,11 @@ angular.module("SmartScribe.services", [])
 		 * Event listener for when user enables mic + video access
 		 */
 		localStream.addEventListener("access-accepted", function(){
+			
+			/**
+			 * Hark determines whether or not the user is currently speaking
+			 * will be used to timestamp and send out transcript to group
+			 */
 			var speechEvents = hark(localStream.stream, {});
 	    speechEvents.on('speaking', function(){
 	    	$rootScope.$emit("speaking", true);
@@ -29,6 +34,9 @@ angular.module("SmartScribe.services", [])
 	    speechEvents.on('stopped_speaking', function(){
 	    	$rootScope.$emit("speaking", false);
 	    });
+
+	    // starts speech recognition after user has enabled media access
+	    SpeechRecognition.toggleRecognition(true);
 
 			/**
 			 * When the local user has connected to the room successfully
@@ -103,10 +111,12 @@ angular.module("SmartScribe.services", [])
 		console.log("Could not create token : ", err);
 	});
 
-})
+}])
 .service("SpeechRecognition", function($rootScope){
 	
 	var recognition = new webkitSpeechRecognition();
+	var final_transcript = '';
+
 	recognition.lang = "en-US";
 	// .continuous prevents speech recognition from stopping after the user stops speaking
 	recognition.continuous = true;
@@ -149,9 +159,20 @@ angular.module("SmartScribe.services", [])
 
 	$rootScope.$on("speaking", function(e, isSpeaking){
 		if(isSpeaking){
+			
+		} else {
+			
+		}
+	});
+	/**
+	 * Turns on or off speech recognition
+	 * @param {bool} start
+	 */
+	this.toggleRecognition = function(start){
+		if(start) {
 			recognition.start();
 		} else {
 			recognition.stop();
 		}
-	});
+	};
 });

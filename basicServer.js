@@ -3,11 +3,11 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     errorhandler = require('errorhandler'),
     morgan = require('morgan'),
-    net = require('net'),
+    // net = require('net'),
     N = require('./nuve'),
     fs = require("fs"),
     https = require("https"),
-        config = require('./../../licode_config');
+    config = require('./../../licode_config');
 
 var options = {
     ca: fs.readFileSync("/ccds.design.ssl/ccds_design.ca-bundle"),
@@ -105,4 +105,4 @@ app.use(function(req, res, next) {
 app.listen(3001);
 
 var server = https.createServer(options, app);
-server.listen(443);
+server.listen(8443);
