@@ -87,7 +87,7 @@ angular.module("SmartScribe.services", [])
 	 * @param {function} err takes one param errResponse
 	 */
 	var createToken = function(roomName, username, callback, err) {
-		if(!room || !username) {
+		if(!roomName || !username) {
 			throw new Error("Missing room name or user name");
 		}
 		var body = {room: roomName, userName : username, role : "presenter"};
