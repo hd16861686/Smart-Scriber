@@ -119,16 +119,17 @@ app.post('/createToken/', function(req, res) {
   }
   try {
     roomId = getRoomIdWithName(roomName);
+    N.API.createToken(roomId, userName, role, function(token) {
+      console.log("New Token Generated: " + token);
+      res.status(200).send(token);
+    }, function(err){
+      res.status(400).send({msg: "Error generating token: " + err});
+    });
   } catch(err) {
     res.status(400).send({msg: "Error creating room: " + err});
   }
   
-  N.API.createToken(roomId, userName, role, function(token) {
-    console.log("New Token Generated: " + token);
-    res.status(200).send(token);
-  }, function(err){
-    res.status(400).send({msg: "Error generating token: " + err});
-  });
+  
 });
 
 
