@@ -114,7 +114,7 @@ app.post('/createToken/', function(req, res) {
   userName = data.userName,
   role = data.role;
   var roomId;
-  if(!room || !userName || !role) {
+  if(!roomName || !userName || !role) {
     res.status(400).send({msg: "Missing required fields"});
   }
   try {
