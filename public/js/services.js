@@ -102,6 +102,7 @@ angular.module("SmartScribe.services", [])
 
 	}
 
+
 	// createToken("myroom", "user", function(response){
 	// 	var token = response.data;
 	// 	room = Erizo.Room({token : token});
