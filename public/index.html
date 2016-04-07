@@ -13,13 +13,16 @@
     <button id="testConnection" onclick="testConnection()">Test Connection</button>
     <div id="myVideo" style="width:320px; height: 240px;">
     </div> -->
-    <div id="application-wrapper" ng-if="isChrome">
+    <div id="application-wrapper" ng-if="isChrome" >
       <div id="my-video"></div>
     </div>
+    
     <div id="switch-to-chrome" ng-if="!isChrome">
       This is an experimental feature that only works on the Chrome Browser.
       <a href="https://www.google.com/chrome/browser/desktop/">Install Chrome Here</a>
     </div>
+
+
     <script type="text/javascript" src="./js/hark.bundle.js"></script>
     <script type="text/javascript" src="./js/controllers.js"></script>
     <script type="text/javascript" src="./js/services.js"></script>

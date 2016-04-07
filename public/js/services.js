@@ -86,8 +86,11 @@ angular.module("SmartScribe.services", [])
 	 * @param {function} callback takes on param response
 	 * @param {function} err takes one param errResponse
 	 */
-	var createToken = function(username, role, callback, err) {
-		var body = {username : username, role : role};
+	var createToken = function(room, username, callback, err) {
+		if(!room || !username) {
+			throw new Error("Missing room name or user name");
+		}
+		var body = {room: room, username : username, role : "presenter"};
 		$http({
 			method : "POST",
 			url : serverUrl + "createToken/",
@@ -98,18 +101,48 @@ angular.module("SmartScribe.services", [])
 		}).then(callback, err);
 
 	}
-	createToken("user", "presenter", function(response){
-		var token = response.data;
-		room = Erizo.Room({token : token});
+
+	// createToken("myroom", "user", function(response){
+	// 	var token = response.data;
+	// 	room = Erizo.Room({token : token});
+	// 	try {
+	// 		configLocalStream(room);
+	// 		localStream.init();
+	// 	} catch (err){
+	// 		console.log("Error: " + err);
+	// 	}
+	// }, function(err){
+	// 	console.log("Could not create token : ", err);
+	// });
+
+	/**
+	 * Gets or creates a room by passing room and name
+	 * Server returns token for that room
+	 * @param {string} room
+	 * @param {string} userName
+	 * @returns {boolean}
+	 */
+	this.joinRoomWithName = function(room, userName){
 		try {
-			configLocalStream(room);
-			localStream.init();
-		} catch (err){
-			console.log("Error: " + err);
+			createToken(room, userName, function(response){
+				var token = response.data;
+				room = Erizo.Room({token : token});
+				try {
+					configLocalStream(room);
+					localStream.init();
+					return true;
+				} catch (err){
+					console.log("Error: " + err);
+				}
+			}, function(err){
+				console.log("Could not create token : ", err);
+				return false;
+			});
+		} catch(err) {
+			console.log("Error joining room: ", err);
 		}
-	}, function(err){
-		console.log("Could not create token : ", err);
-	});
+		
+	};
 
 }])
 .service("SpeechRecognition", function($rootScope){
