@@ -6,6 +6,7 @@ angular.module("SmartScribe.directives", [])
 		link: function(scope, element, attrs) {
 			scope.meetingInfo = {};
 			scope.joinRoom = function(){
+				var meetingInfo = scope.meetingInfo;
 				var roomJoinSuccess = LicodeService.joinRoomWithName(meetingInfo.roomName, meetingInfo.userName);
 				if(roomJoinSuccess) {
 					scope.roomJoined = true;
