@@ -110,7 +110,7 @@ app.get('/getUsers/:room', function(req, res) {
 app.post('/createToken/', function(req, res) {
   
   var data = req.body,
-  roomName = data.room,
+  roomName = data.roomName,
   userName = data.userName,
   role = data.role;
   var roomId;

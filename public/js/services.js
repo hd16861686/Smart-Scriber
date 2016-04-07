@@ -90,7 +90,7 @@ angular.module("SmartScribe.services", [])
 		if(!room || !username) {
 			throw new Error("Missing room name or user name");
 		}
-		var body = {room: room, username : username, role : "presenter"};
+		var body = {room: roomName, userName : username, role : "presenter"};
 		$http({
 			method : "POST",
 			url : serverUrl + "createToken/",
