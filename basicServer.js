@@ -119,6 +119,7 @@ app.post('/createToken/', function(req, res) {
   }
   try {
     roomId = getRoomIdWithName(roomName);
+    console.log(roomId);
     N.API.createToken(roomId, userName, role, function(token) {
       console.log("New Token Generated: " + token);
       res.status(200).send(token);
