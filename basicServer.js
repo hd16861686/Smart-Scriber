@@ -50,9 +50,9 @@ N.API.init(config.nuve.superserviceID, config.nuve.superserviceKey, 'http://loca
  * @param {function} err takes one error parameter
  */
 function getRoomIdWithName(roomName, next, err) {
-  var roomId;
+  
   N.API.getRooms(function(roomlist) {
-    
+    var roomId;
     var rooms = JSON.parse(roomlist);
 
     for (var room in rooms) {
@@ -115,7 +115,7 @@ app.post('/createToken/', function(req, res) {
     }, function(err){
       res.status(400).send({msg: "Error generating token: " + err});
     });
-    console.log(roomId);
+    
     
   } catch(err) {
     res.status(400).send({msg: "Error: " + err});
