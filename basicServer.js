@@ -62,9 +62,9 @@ function getRoomIdWithName(roomName, next, err) {
     }
 
     if (!roomId) {
-      N.API.createRoom(roomName, function(id) {
-        console.log('Created room named "' + roomName + "' with ID '" + id);
-        next(id);
+      N.API.createRoom(roomName, function(room) {
+        console.log('Created room named "' + roomName + "' with ID '" + room._id);
+        next(room._id);
       }, function(errorMsg) {
         err(errorMsg);
       });
@@ -106,6 +106,7 @@ app.post('/createToken/', function(req, res) {
   }
   try {
     getRoomIdWithName(roomName, function(roomId){
+      console.log(roomId);
       N.API.createToken(roomId, userName, role, function(token) {
         console.log("New Token Generated: " + token);
         res.status(200).send(token);
