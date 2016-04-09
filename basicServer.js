@@ -40,27 +40,16 @@ app.use(bodyParser.urlencoded({
 N.API.init(config.nuve.superserviceID, config.nuve.superserviceKey, 'http://localhost:3000/');
 
 
-/**
- * Creates a room with roomName and returns the ID
- * @param {string} roomName
- * @return {string} roomId
- */
-function createRoomWithName(roomName) {
-  N.API.createRoom(roomName, function(roomId) {
-    console.log('Created room named "' + roomName + "' with ID '" + roomId);
-    return roomId;
-  }, function(){
-    throw new Error("Could not create room with name: " + roomName);
-  });
-}
+
 
 /**
  * Gets the id of the room with roomName
  * if it does not exist, create it
  * @param {string} roomName
- * @return {string} roomId
+ * @param {function} next takes one paramter roomId
+ * @param {function} err takes one error parameter
  */
-function getRoomIdWithName(roomName) {
+function getRoomIdWithName(roomName, next, err) {
   var roomId;
   N.API.getRooms(function(roomlist) {
     
@@ -73,18 +62,17 @@ function getRoomIdWithName(roomName) {
     }
 
     if (!roomId) {
-      try {
-        roomId = createRoomWithName(roomName);
-        return roomId;
-      } catch(err) {
-        console.log("Error Creating Room: ", err);
-        throw new Error("Could not create a room with name " + roomName);
-      } 
+      N.API.createRoom(roomName, function(id) {
+        console.log('Created room named "' + roomName + "' with ID '" + id);
+        next(id);
+      }, function(errorMsg) {
+        err(errorMsg);
+      });
     } else {
-      return roomId;
+      next(roomId);
     }
 
-  });
+  }, err);
 };
 
 
@@ -113,21 +101,24 @@ app.post('/createToken/', function(req, res) {
   roomName = data.roomName,
   userName = data.userName,
   role = data.role;
-  var roomId;
   if(!roomName || !userName || !role) {
     res.status(400).send({msg: "Missing required fields"});
   }
   try {
-    roomId = getRoomIdWithName(roomName);
-    console.log(roomId);
-    N.API.createToken(roomId, userName, role, function(token) {
-      console.log("New Token Generated: " + token);
-      res.status(200).send(token);
+    getRoomIdWithName(roomName, function(roomId){
+      N.API.createToken(roomId, userName, role, function(token) {
+        console.log("New Token Generated: " + token);
+        res.status(200).send(token);
+      }, function(err){
+        res.status(400).send({msg: "Error generating token: " + err});
+      });
     }, function(err){
       res.status(400).send({msg: "Error generating token: " + err});
     });
+    console.log(roomId);
+    
   } catch(err) {
-    res.status(400).send({msg: "Error creating room: " + err});
+    res.status(400).send({msg: "Error: " + err});
   }
   
   
