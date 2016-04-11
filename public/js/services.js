@@ -196,18 +196,19 @@ angular.module("SmartScribe.services", [])
 			console.log(final_transcript);
 		} else {
 			final_transcript = '';
-			
+
 		}
 	});
-	/**
-	 * Turns on or off speech recognition
-	 * @param {bool} start
-	 */
-	this.toggleRecognition = function(start){
-		if(start) {
-			recognition.start();
-		} else {
-			recognition.stop();
-		}
-	};
+	recognition.start();
+	// /**
+	//  * Turns on or off speech recognition
+	//  * @param {bool} start
+	//  */
+	// this.toggleRecognition = function(start){
+	// 	if(start) {
+	// 		recognition.start();
+	// 	} else {
+	// 		recognition.stop();
+	// 	}
+	// };
 });
