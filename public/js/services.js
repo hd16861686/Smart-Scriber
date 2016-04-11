@@ -188,7 +188,7 @@ angular.module("SmartScribe.services", [])
 	 * Recognition has ended
 	 */
 	recognition.onend = function() {
-		console.log("speech recognition ended");
+		console.log("speech recognition ended, restarting..");
 		this.toggleRecognition(true);
 	}
 
