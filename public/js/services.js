@@ -189,6 +189,7 @@ angular.module("SmartScribe.services", [])
 	 */
 	recognition.onend = function() {
 		console.log("speech recognition ended");
+		this.toggleRecognition(true);
 	}
 
 	// $rootScope.$on("speaking", function(e, isSpeaking){
@@ -196,7 +197,7 @@ angular.module("SmartScribe.services", [])
 	// 		console.log(final_transcript);
 	// 	} else {
 	// 		final_transcript = '';
-			
+
 	// 	}
 	// });
 	/**
