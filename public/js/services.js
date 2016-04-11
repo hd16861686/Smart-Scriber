@@ -191,24 +191,23 @@ angular.module("SmartScribe.services", [])
 		console.log("speech recognition ended");
 	}
 
-	$rootScope.$on("speaking", function(e, isSpeaking){
-		if(isSpeaking){
-			console.log(final_transcript);
-		} else {
-			final_transcript = '';
-
-		}
-	});
-	recognition.start();
-	// /**
-	//  * Turns on or off speech recognition
-	//  * @param {bool} start
-	//  */
-	// this.toggleRecognition = function(start){
-	// 	if(start) {
-	// 		recognition.start();
+	// $rootScope.$on("speaking", function(e, isSpeaking){
+	// 	if(isSpeaking){
+	// 		console.log(final_transcript);
 	// 	} else {
-	// 		recognition.stop();
+	// 		final_transcript = '';
+			
 	// 	}
-	// };
+	// });
+	/**
+	 * Turns on or off speech recognition
+	 * @param {bool} start
+	 */
+	this.toggleRecognition = function(start){
+		if(start) {
+			recognition.start();
+		} else {
+			recognition.stop();
+		}
+	};
 });
