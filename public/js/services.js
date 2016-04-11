@@ -37,7 +37,7 @@ angular.module("SmartScribe.services", [])
 
 	    // starts speech recognition after user has enabled media access
 	    SpeechRecognition.toggleRecognition(true);
-
+// 
 			/**
 			 * When the local user has connected to the room successfully
 			 * publish your room so everyone can find your stream
@@ -177,7 +177,7 @@ angular.module("SmartScribe.services", [])
         interim_transcript += event.results[i][0].transcript;
       }
     }
-    console.log(interim_transcript);
+    // console.log(interim_transcript);
 	};
 
 	recognition.onerror = function(event) {
