@@ -14,10 +14,6 @@ angular.module("SmartScribe.controllers", [])
 	$rootScope.$on("streamUpdate", function(e, stream, isAdd){
 		if(isAdd) {
 			$scope.participants.push(stream);
-			$timeout(function(){
-				var streamID = stream.getID();
-				stream.play(streamID);
-			});
 		} else {
 
 		}
