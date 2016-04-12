@@ -197,14 +197,16 @@ angular.module("SmartScribe.services", [])
 	 * Fired when sound that is recognised by the speech recognition service as speech has been detected.
 	 */
 	recognition.onspeechstart = function(){
-
+		final_transcript = '';
+		console.log("speech start");
 	};
 
 	/**
 	 * Fired when speech recognised by the speech recognition service has stopped being detected.
 	 */
 	recognition.onspeechend = function() {
-		console.log("final_transcript");
+		console.log(final_transcript);
+		
 	};
 
 	// $rootScope.$on("speaking", function(e, isSpeaking){
