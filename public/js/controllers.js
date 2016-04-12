@@ -12,12 +12,15 @@ angular.module("SmartScribe.controllers", [])
 	 * @param {bool} isAdd
 	 */
 	$rootScope.$on("streamUpdate", function(e, stream, isAdd){
-		var id = stream.getID();
-		if(isAdd) {
-			$scope.participants[id] = stream;
-		} else {
-			delete $scope.participants[id];
-		}
+		$timeout(function(){
+			var id = stream.getID();
+			if(isAdd) {
+				$scope.participants[id] = stream;
+			} else {
+				delete $scope.participants[id];
+			}
+		});
+		
 	});
 
 }]);
