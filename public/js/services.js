@@ -194,8 +194,9 @@ angular.module("SmartScribe.services", [])
 
 	$rootScope.$on("speaking", function(e, isSpeaking){
 		if(isSpeaking){
-			console.log(final_transcript);
+			// console.log(final_transcript);
 		} else {
+			console.log(final_transcript);
 			final_transcript = '';
 
 		}
