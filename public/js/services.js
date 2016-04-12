@@ -212,6 +212,10 @@ angular.module("SmartScribe.services", [])
 		console.log("HUH WTAT");
 	};
 
+	recognition.onsoundend = function(){
+		console.log("sound ended");
+	}
+
 	// $rootScope.$on("speaking", function(e, isSpeaking){
 	// 	if(isSpeaking){
 	// 		// console.log(final_transcript);
