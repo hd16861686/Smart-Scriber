@@ -10,19 +10,7 @@ angular.module("SmartScribe.services", [])
 		videoSize: [640, 480, 640, 480]
 	};
 
-	/**
-	 * Subscribe to all streams in the room except your own
-	 * @param {array} streams
-	 */
-	function subscribeToStreams(streams) {
-    for (var index in streams) {
-      var stream = streams[index];
-      if (localStream.getID() !== stream.getID()) {
-
-        room.subscribe(stream);
-      }
-    }
-  };
+	
 
 	/**
 	 * Configs the local stream event listeners
@@ -32,6 +20,19 @@ angular.module("SmartScribe.services", [])
 		if(!room) {
 			throw new Error("No Room to initialize local stream in");
 		}
+		/**
+		 * Subscribe to all streams in the room except your own
+		 * @param {array} streams
+		 */
+		function subscribeToStreams(streams) {
+	    for (var index in streams) {
+	      var stream = streams[index];
+	      if (localStream.getID() !== stream.getID()) {
+
+	        room.subscribe(stream);
+	      }
+	    }
+	  };
 		localStream = Erizo.Stream(streamConfig);
 		/**
 		 * Event listener for when user enables mic + video access
