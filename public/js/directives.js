@@ -23,7 +23,7 @@ angular.module("SmartScribe.directives", [])
 		templateUrl : '../templates/participant.html',
 		link: function(scope, element, attrs) {
 			var stream = scope.participant;
-			scope.participantID = stream.getID();
+			// scope.participantID = stream.getID();
 			
 
 			/**
@@ -31,7 +31,7 @@ angular.module("SmartScribe.directives", [])
 			 */
 			$timeout(function(){
 				// Play the stream when participant element is created
-				stream.play(scope.participantID);
+				stream.play(scope.streamID);
 			});
 			
 		}
