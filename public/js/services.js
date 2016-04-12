@@ -150,7 +150,7 @@ angular.module("SmartScribe.services", [])
 	
 	var recognition = new webkitSpeechRecognition();
 	var final_transcript = '';
-
+	var self = this;
 	recognition.lang = "en-US";
 	// .continuous prevents speech recognition from stopping after the user stops speaking
 	recognition.continuous = true;
@@ -189,7 +189,7 @@ angular.module("SmartScribe.services", [])
 	 */
 	recognition.onend = function() {
 		console.log("speech recognition ended, restarting..");
-		this.toggleRecognition(true);
+		self.toggleRecognition(true);
 	}
 
 	// $rootScope.$on("speaking", function(e, isSpeaking){
