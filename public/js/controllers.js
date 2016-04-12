@@ -1,9 +1,26 @@
 angular.module("SmartScribe.controllers", [])
-.controller('MainCtrl', ["$scope", "$rootScope", "LicodeService", "SpeechRecognition", function($scope, $rootScope, LicodeService, SpeechRecognition){
+.controller('MainCtrl', ["$timeout", "$scope", "$rootScope", "LicodeService", "SpeechRecognition", function($timeout, $scope, $rootScope, LicodeService, SpeechRecognition){
 	$scope.isChrome = true;
 	$scope.roomJoined = false;
+	$scope.participants = [];
 	if(!("webkitSpeechRecognition" in window)) {
 		$scope.isChrome = false;
 	}
+	/**
+	 * When there is a new stream or when a stream is removed
+	 * @param {object} stream
+	 * @param {bool} isAdd
+	 */
+	$rootScope.$on("streamUpdate", function(e, stream, isAdd){
+		if(isAdd) {
+			$scope.participants.push(stream);
+			$timeout(function(){
+				var streamID = stream.getID();
+				stream.play(streamID);
+			});
+		} else {
+
+		}
+	});
 
 }]);
