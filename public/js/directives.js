@@ -17,16 +17,23 @@ angular.module("SmartScribe.directives", [])
 		}
 	}
 }])
-.directive('participant', function(){
+.directive('participant', function($timeout){
 	return {
 		restrict : "A",
 		templateUrl : '../templates/participant.html',
 		link: function(scope, element, attrs) {
 			var stream = scope.participant.stream;
 			scope.participantID = scope.participant.getID();
+			
 
-			// Play the stream when participant element is created
-			stream.play(scope.participantID);
+			/**
+			 * Render of new participant object complete
+			 */
+			$timeout(function(){
+				// Play the stream when participant element is created
+				stream.play(scope.participantID);
+			});
+			
 		}
 	}
 });
