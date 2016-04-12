@@ -169,7 +169,7 @@ angular.module("SmartScribe.services", [])
 		timer = $timeout(function(){
 			console.log(final_transcript);
 
-		}, 1000);
+		}, 500);
 	}
 	
 	/**
