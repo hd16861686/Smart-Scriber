@@ -166,7 +166,7 @@ angular.module("SmartScribe.services", [])
 	 * Wrap the necessary meta data around a transcript before sending
 	 * @param {string} transcript
 	 */
-	this.broadcastMessage = function(transcript){
+	$rootScope.$on("broadcastTranscript", function(e, transcript){
 		if(!clientUsername) {
 			return;
 		}
@@ -176,7 +176,7 @@ angular.module("SmartScribe.services", [])
 			message : transcript
 		};
 		sendData(transcriptObject);
-	};
+	});
 	
 
 }])
@@ -198,7 +198,7 @@ angular.module("SmartScribe.services", [])
 		if(finalTranscript.length > 0) {
 			finalTranscript = finalTranscript.trim();
 			// console.log(finalTranscript);
-			LicodeService.broadcastMessage(finalTranscript);
+			$rootScope.$emit("broadcastTranscript", finalTranscript);
 			finalTranscript = '';
 		}
 	}
