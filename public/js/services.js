@@ -160,7 +160,7 @@ angular.module("SmartScribe.services", [])
 	 * The function that gets called after recognition.start()
 	 */
 	recognition.onstart = function(){
-		console.log("speech start");
+		console.log("recognition started");
 	};
 
 	/**
@@ -189,7 +189,7 @@ angular.module("SmartScribe.services", [])
 	 * Recognition has ended
 	 */
 	recognition.onend = function() {
-		console.log("speech recognition ended, restarting..");
+		// console.log("speech recognition stopped, restarting..");
 		self.toggleRecognition(true);
 	}
 
