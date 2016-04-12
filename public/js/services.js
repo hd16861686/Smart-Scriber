@@ -175,7 +175,7 @@ angular.module("SmartScribe.services", [])
 			time : new Date(),
 			message : transcript
 		};
-
+		sendData(transcriptObject);
 	};
 	
 
