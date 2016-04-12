@@ -176,8 +176,7 @@ angular.module("SmartScribe.services", [])
       } else {
         interim_transcript += event.results[i][0].transcript;
       }
-      console.log(final_transcript);
-      console.log(interim_transcript);
+      console.log("Final: " + final_transcript);
     }
     // console.log(interim_transcript);
 	};
@@ -199,6 +198,7 @@ angular.module("SmartScribe.services", [])
 			// console.log(final_transcript);
 		} else {
 			// console.log(final_transcript);
+			console.log("stop speaking");
 			final_transcript = '';
 
 		}
