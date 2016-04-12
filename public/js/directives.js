@@ -22,8 +22,8 @@ angular.module("SmartScribe.directives", [])
 		restrict : "A",
 		templateUrl : '../templates/participant.html',
 		link: function(scope, element, attrs) {
-			var stream = scope.participant.stream;
-			scope.participantID = scope.participant.getID();
+			var stream = scope.participant;
+			scope.participantID = stream.getID();
 			
 
 			/**
