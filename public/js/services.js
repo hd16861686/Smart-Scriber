@@ -23,17 +23,17 @@ angular.module("SmartScribe.services", [])
 		 */
 		localStream.addEventListener("access-accepted", function(){
 			
-			/**
-			 * Hark determines whether or not the user is currently speaking
-			 * will be used to timestamp and send out transcript to group
-			 */
-			var speechEvents = hark(localStream.stream, {});
-	    speechEvents.on('speaking', function(){
-	    	$rootScope.$emit("speaking", true);
-	    });
-	    speechEvents.on('stopped_speaking', function(){
-	    	$rootScope.$emit("speaking", false);
-	    });
+			// /**
+			//  * Hark determines whether or not the user is currently speaking
+			//  * will be used to timestamp and send out transcript to group
+			//  */
+			// var speechEvents = hark(localStream.stream, {});
+	  //   speechEvents.on('speaking', function(){
+	  //   	$rootScope.$emit("speaking", true);
+	  //   });
+	  //   speechEvents.on('stopped_speaking', function(){
+	  //   	$rootScope.$emit("speaking", false);
+	  //   });
 
 	    // starts speech recognition after user has enabled media access
 	    SpeechRecognition.toggleRecognition(true);
@@ -149,7 +149,7 @@ angular.module("SmartScribe.services", [])
 .service("SpeechRecognition", function($rootScope){
 	
 	var recognition = new webkitSpeechRecognition();
-	var final_transcript = '';
+	var finalTranscript = '';
 	var self = this;
 	recognition.lang = "en-US";
 	// .continuous prevents speech recognition from stopping after the user stops speaking
@@ -161,9 +161,10 @@ angular.module("SmartScribe.services", [])
 	 * Send final transcript if there is content
 	 */
 	function sendFinalTranscript() {
-		if(final_transcript.length > 0) {
-			console.log(final_transcript);
-			final_transcript = '';
+		if(finalTranscript.length > 0) {
+			finalTranscript = finalTranscript.trim();
+			console.log(finalTranscript);
+			finalTranscript = '';
 		}
 	}
 	
@@ -179,13 +180,13 @@ angular.module("SmartScribe.services", [])
 	 * @param {obj} event
 	 */
 	recognition.onresult = function(event) {
-		var interim_transcript = '';
+		var interimTranscript = '';
 
     for (var i = event.resultIndex; i < event.results.length; ++i) {
       if (event.results[i].isFinal) {
-        final_transcript += event.results[i][0].transcript;
+        finalTranscript += event.results[i][0].transcript;
       } else {
-        interim_transcript += event.results[i][0].transcript;
+        interimTranscript += event.results[i][0].transcript;
       }
     }
     sendFinalTranscript();
@@ -204,18 +205,6 @@ angular.module("SmartScribe.services", [])
 		self.toggleRecognition(true);
 	};
 
-
-
-	// $rootScope.$on("speaking", function(e, isSpeaking){
-	// 	if(isSpeaking){
-	// 		// console.log(final_transcript);
-	// 	} else {
-	// 		// console.log(final_transcript);
-	// 		console.log("stop speaking");
-	// 		final_transcript = '';
-
-	// 	}
-	// });
 
 	/**
 	 * Turns on or off speech recognition
