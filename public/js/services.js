@@ -64,7 +64,7 @@ angular.module("SmartScribe.services", [])
 			 */
 			room.addEventListener("stream-added", function(streamEvent){
 				// check if stream that was added is client's
-				if(localStream.getID() === event.stream.getID()){
+				if(localStream.getID() === streamEvent.stream.getID()){
 					console.log("Successfully Published");
 				} else {
 					var streamArray = [streamEvent.stream];
