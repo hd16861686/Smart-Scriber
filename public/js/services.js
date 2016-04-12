@@ -56,12 +56,6 @@ angular.module("SmartScribe.services", [])
 			 */
 			room.addEventListener("stream-subscribed", function(streamEvent){
 				var stream = streamEvent.stream;
-
-				/**
-				 * Notifies listeners of new stream, listener must play stream
-				 * @param {object} stream
-				 * @param {bool} addStream
-				 */
 				$rootScope.$emit("streamUpdate", stream, true);
 			});
 
@@ -82,7 +76,7 @@ angular.module("SmartScribe.services", [])
 			 * When a stream no longer exists in the room
 			 */
 			room.addEventListener("stream-removed", function(streamEvent){
-				
+
 			});
 
 			/**
