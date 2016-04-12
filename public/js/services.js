@@ -77,6 +77,7 @@ angular.module("SmartScribe.services", [])
 			 * When a stream no longer exists in the room
 			 */
 			room.addEventListener("stream-removed", function(streamEvent){
+				var stream = streamEvent.stream;
 				$rootScope.$emit("streamUpdate", stream, false);
 			});
 
