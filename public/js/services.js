@@ -146,12 +146,11 @@ angular.module("SmartScribe.services", [])
 	};
 
 }])
-.service("SpeechRecognition", function($rootScope, $timeout){
+.service("SpeechRecognition", function($rootScope){
 	
 	var recognition = new webkitSpeechRecognition();
 	var final_transcript = '';
 	var self = this;
-	var timer;
 	recognition.lang = "en-US";
 	// .continuous prevents speech recognition from stopping after the user stops speaking
 	recognition.continuous = true;
@@ -159,16 +158,16 @@ angular.module("SmartScribe.services", [])
 	recognition.interimResults = true;
 	
 	/**
-	 * Resets timer which fires when there is no result for a while
+	 * Send final transcript if there is content
 	 */
-	function checkCompletion() {
-		if(timer) {
-			$timeout.cancel(timer);
-		}
-		timer = $timeout(function(){
+	function sendFinalTranscript() {
+		if(final_transcript.length > 0) {
 			console.log(final_transcript);
 			final_transcript = '';
-		}, 500);
+		}
+
+		
+
 	}
 	
 	/**
@@ -192,8 +191,8 @@ angular.module("SmartScribe.services", [])
         interim_transcript += event.results[i][0].transcript;
       }
     }
-    checkCompletion();
-    // console.log(interim_transcript);
+    sendFinalTranscript();
+   
 	};
 
 	recognition.onerror = function(event) {
