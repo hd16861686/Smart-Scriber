@@ -180,7 +180,7 @@ angular.module("SmartScribe.services", [])
 	
 
 }])
-.service("SpeechRecognition", ["$rootScope", "LicodeService", function($rootScope, LicodeService){
+.service("SpeechRecognition", ["$rootScope", function($rootScope){
 	var disableRecognition = true;
 	var recognition = new webkitSpeechRecognition();
 	var finalTranscript = '';
