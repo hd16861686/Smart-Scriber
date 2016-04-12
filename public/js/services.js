@@ -165,9 +165,6 @@ angular.module("SmartScribe.services", [])
 			console.log(final_transcript);
 			final_transcript = '';
 		}
-
-		
-
 	}
 	
 	/**
