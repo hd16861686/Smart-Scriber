@@ -176,7 +176,7 @@ angular.module("SmartScribe.services", [])
       } else {
         interim_transcript += event.results[i][0].transcript;
       }
-      console.log("Final: " + event);
+      console.log(event);
     }
     // console.log(interim_transcript);
 	};
