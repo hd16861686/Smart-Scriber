@@ -41,7 +41,7 @@ angular.module("SmartScribe.services", [])
 		
 
 	    // starts speech recognition after user has enabled media access
-	    SpeechRecognition.toggleRecognition(true);
+	    // SpeechRecognition.toggleRecognition(true);
 
 			/**
 			 * When the local user has connected to the room successfully
