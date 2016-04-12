@@ -3,6 +3,7 @@ angular.module("SmartScribe.services", [])
 	var serverUrl = "/";
 	var localStream;
 	var myVideoId = "my-video";
+	var clientUsername;
 	var streamConfig = {
 		audio : true,
 		video : true,
@@ -10,7 +11,16 @@ angular.module("SmartScribe.services", [])
 		videoSize: [640, 480, 640, 480]
 	};
 
-	
+	/**
+	 * Send data to clients subscribed to you
+	 * @param {object} data
+	 */
+	function sendData(data) {
+		// make sure client local stream is connected to room first
+		if(localStream.stream) {
+			localStream.sendData(data);
+		}
+	};
 
 	/**
 	 * Configs the local stream event listeners
@@ -64,12 +74,17 @@ angular.module("SmartScribe.services", [])
 			 * When another stream is added to the room 
 			 */
 			room.addEventListener("stream-added", function(streamEvent){
+				var stream = streamEvent.stream;
 				// check if stream that was added is client's
-				if(localStream.getID() === streamEvent.stream.getID()){
+				if(localStream.getID() === stream.getID()){
 					console.log("Successfully Published");
 				} else {
-					var streamArray = [streamEvent.stream];
+					var streamArray = [stream];
 					subscribeToStreams(streamArray);
+					// attach a listener for stream broadcast
+					stream.addEventListener("stream-data", function(e) {
+						console.log("new data sent by " + e.stream.getID(), e);
+					});
 				}
 			});
 
@@ -104,6 +119,7 @@ angular.module("SmartScribe.services", [])
 		if(!roomName || !userName) {
 			throw new Error("Missing room name or user name");
 		}
+		clientUsername = userName;
 		var body = {roomName: roomName, userName : userName, role : "presenter"};
 		$http({
 			method : "POST",
@@ -146,8 +162,25 @@ angular.module("SmartScribe.services", [])
 		
 	};
 
+	/**
+	 * Wrap the necessary meta data around a transcript before sending
+	 * @param {string} transcript
+	 */
+	this.broadcastMessage = function(transcript){
+		if(!clientUsername) {
+			return;
+		}
+		var transcriptObject = {
+			name : clientUsername,
+			time : new Date(),
+			message : transcript
+		};
+
+	};
+	
+
 }])
-.service("SpeechRecognition", function($rootScope){
+.service("SpeechRecognition", ["$rootScope", "LicodeService", function($rootScope, LicodeService){
 	var disableRecognition = true;
 	var recognition = new webkitSpeechRecognition();
 	var finalTranscript = '';
@@ -164,7 +197,8 @@ angular.module("SmartScribe.services", [])
 	function sendFinalTranscript() {
 		if(finalTranscript.length > 0) {
 			finalTranscript = finalTranscript.trim();
-			console.log(finalTranscript);
+			// console.log(finalTranscript);
+			LicodeService.broadcastMessage(finalTranscript);
 			finalTranscript = '';
 		}
 	}
@@ -221,4 +255,4 @@ angular.module("SmartScribe.services", [])
 			recognition.stop();
 		}
 	};
-});
+}]);
