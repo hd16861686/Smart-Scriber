@@ -192,14 +192,14 @@ angular.module("SmartScribe.services", [])
 		self.toggleRecognition(true);
 	}
 
-	// $rootScope.$on("speaking", function(e, isSpeaking){
-	// 	if(isSpeaking){
-	// 		console.log(final_transcript);
-	// 	} else {
-	// 		final_transcript = '';
+	$rootScope.$on("speaking", function(e, isSpeaking){
+		if(isSpeaking){
+			console.log(final_transcript);
+		} else {
+			final_transcript = '';
 
-	// 	}
-	// });
+		}
+	});
 	/**
 	 * Turns on or off speech recognition
 	 * @param {bool} start
