@@ -148,7 +148,7 @@ angular.module("SmartScribe.services", [])
 
 }])
 .service("SpeechRecognition", function($rootScope){
-	
+	var disableRecognition = true;
 	var recognition = new webkitSpeechRecognition();
 	var finalTranscript = '';
 	var self = this;
@@ -212,6 +212,9 @@ angular.module("SmartScribe.services", [])
 	 * @param {bool} start
 	 */
 	this.toggleRecognition = function(start){
+		if(disableRecognition) {
+			return;
+		}
 		if(start) {
 			recognition.start();
 		} else {
