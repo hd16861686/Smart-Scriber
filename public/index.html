@@ -16,7 +16,7 @@
     <div id="application-wrapper" ng-if="isChrome" >
       <div id="my-video"></div>
       <div meeting-creator></div>
-      <div id="participant-container" participant ng-repeat="participant in participants track by $index"></div>
+      <div id="participant-container" participant ng-repeat="participant in participants"></div>
     </div>
     
     <div id="switch-to-chrome" ng-if="!isChrome">
