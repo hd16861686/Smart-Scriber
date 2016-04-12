@@ -163,12 +163,11 @@ angular.module("SmartScribe.services", [])
 	 */
 	function checkCompletion() {
 		if(timer) {
-			console.log('cancelling previous timer');
 			$timeout.cancel(timer);
 		}
 		timer = $timeout(function(){
 			console.log(final_transcript);
-
+			final_transcript = '';
 		}, 500);
 	}
 	
