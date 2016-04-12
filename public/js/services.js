@@ -9,6 +9,21 @@ angular.module("SmartScribe.services", [])
 		data : true,
 		videoSize: [640, 480, 640, 480]
 	};
+
+	/**
+	 * Subscribe to all streams in the room except your own
+	 * @param {array} streams
+	 */
+	function subscribeToStreams(streams) {
+    for (var index in streams) {
+      var stream = streams[index];
+      if (localStream.getID() !== stream.getID()) {
+
+        room.subscribe(stream);
+      }
+    }
+  };
+
 	/**
 	 * Configs the local stream event listeners
 	 * @param {object} room Requires a ErizoRoom object
@@ -22,49 +37,52 @@ angular.module("SmartScribe.services", [])
 		 * Event listener for when user enables mic + video access
 		 */
 		localStream.addEventListener("access-accepted", function(){
-			
-			// /**
-			//  * Hark determines whether or not the user is currently speaking
-			//  * will be used to timestamp and send out transcript to group
-			//  */
-			// var speechEvents = hark(localStream.stream, {});
-	  //   speechEvents.on('speaking', function(){
-	  //   	$rootScope.$emit("speaking", true);
-	  //   });
-	  //   speechEvents.on('stopped_speaking', function(){
-	  //   	$rootScope.$emit("speaking", false);
-	  //   });
+		
 
 	    // starts speech recognition after user has enabled media access
 	    SpeechRecognition.toggleRecognition(true);
-// 
+
 			/**
 			 * When the local user has connected to the room successfully
 			 * publish your room so everyone can find your stream
 			 */
 			room.addEventListener("room-connected", function(roomEvent){
 				room.publish(localStream, {maxVideoBW: 300});
+				subscribeToStreams(roomEvent.streams);
 			});
 
 			/**
 			 * When you have successfully subscribed to a stream, this fn is called
 			 */
 			room.addEventListener("stream-subscribed", function(streamEvent){
+				var stream = streamEvent.stream;
 
+				/**
+				 * Notifies listeners of new stream, listener must play stream
+				 * @param {object} stream
+				 * @param {bool} addStream
+				 */
+				$rootScope.$emit("streamUpdate", stream, true);
 			});
 
 			/**
 			 * When another stream is added to the room 
 			 */
 			room.addEventListener("stream-added", function(streamEvent){
-
+				// check if stream that was added is client's
+				if(localStream.getID() === event.stream.getID()){
+					console.log("Successfully Published");
+				} else {
+					var streamArray = [streamEvent.stream];
+					subscribeToStreams(streamArray);
+				}
 			});
 
 			/**
 			 * When a stream no longer exists in the room
 			 */
 			room.addEventListener("stream-removed", function(streamEvent){
-
+				
 			});
 
 			/**
@@ -102,19 +120,6 @@ angular.module("SmartScribe.services", [])
 
 	}
 
-
-	// createToken("myroom", "user", function(response){
-	// 	var token = response.data;
-	// 	room = Erizo.Room({token : token});
-	// 	try {
-	// 		configLocalStream(room);
-	// 		localStream.init();
-	// 	} catch (err){
-	// 		console.log("Error: " + err);
-	// 	}
-	// }, function(err){
-	// 	console.log("Could not create token : ", err);
-	// });
 
 	/**
 	 * Gets or creates a room by passing room and name
