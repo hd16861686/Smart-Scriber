@@ -208,6 +208,9 @@ angular.module("SmartScribe.services", [])
 		console.log(final_transcript);
 		
 	};
+	recognition.onaudiostart = function(){
+		console.log("HUH WTAT");
+	};
 
 	// $rootScope.$on("speaking", function(e, isSpeaking){
 	// 	if(isSpeaking){
