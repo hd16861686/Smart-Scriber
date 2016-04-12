@@ -16,4 +16,13 @@ angular.module("SmartScribe.directives", [])
 			}
 		}
 	}
-}]);
+}])
+.directive('participant', function(){
+	return {
+		restrict : "A",
+		templateUrl : '../templates/participant.html',
+		link: function(scope, element, attrs) {
+			scope.streamID = scope.stream.getID();
+		}
+	}
+});
