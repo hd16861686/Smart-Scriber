@@ -22,7 +22,11 @@ angular.module("SmartScribe.directives", [])
 		restrict : "A",
 		templateUrl : '../templates/participant.html',
 		link: function(scope, element, attrs) {
-			scope.streamID = scope.stream.getID();
+			var stream = scope.participant.stream;
+			scope.streamID = stream.getID();
+
+			// Play the stream when participant element is created
+			stream.play(scope.streamID);
 		}
 	}
 });
