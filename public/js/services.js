@@ -146,16 +146,32 @@ angular.module("SmartScribe.services", [])
 	};
 
 }])
-.service("SpeechRecognition", function($rootScope){
+.service("SpeechRecognition", function($rootScope, $timeout){
 	
 	var recognition = new webkitSpeechRecognition();
 	var final_transcript = '';
 	var self = this;
+	var timer;
 	recognition.lang = "en-US";
 	// .continuous prevents speech recognition from stopping after the user stops speaking
 	recognition.continuous = true;
 	// .interimResults allows the speech to change eventually
 	recognition.interimResults = true;
+	
+	/**
+	 * Resets timer which fires when there is no result for a while
+	 */
+	function checkCompletion() {
+		if(timer) {
+			console.log('cancelling previous timer');
+			$timeout.cancel(timer);
+		}
+		timer = $timeout(function(){
+			console.log(final_transcript);
+
+		}, 1000);
+	}
+	
 	/**
 	 * The function that gets called after recognition.start()
 	 */
@@ -176,8 +192,8 @@ angular.module("SmartScribe.services", [])
       } else {
         interim_transcript += event.results[i][0].transcript;
       }
-      console.log(event);
     }
+    checkCompletion();
     // console.log(interim_transcript);
 	};
 
@@ -186,35 +202,14 @@ angular.module("SmartScribe.services", [])
 	};
 
 	/**
-	 * Recognition has stopped
+	 * Recognition has stopped, restart the recognition
 	 */
 	recognition.onend = function() {
 		// console.log("speech recognition stopped, restarting..");
 		self.toggleRecognition(true);
 	};
 
-	/**
-	 * Fired when sound that is recognised by the speech recognition service as speech has been detected.
-	 */
-	recognition.onspeechstart = function(){
-		final_transcript = '';
-		console.log("speech start");
-	};
 
-	/**
-	 * Fired when speech recognised by the speech recognition service has stopped being detected.
-	 */
-	recognition.onspeechend = function() {
-		console.log(final_transcript);
-		
-	};
-	recognition.onaudiostart = function(){
-		console.log("HUH WTAT");
-	};
-
-	recognition.onsoundend = function(){
-		console.log("sound ended");
-	}
 
 	// $rootScope.$on("speaking", function(e, isSpeaking){
 	// 	if(isSpeaking){
@@ -226,6 +221,7 @@ angular.module("SmartScribe.services", [])
 
 	// 	}
 	// });
+
 	/**
 	 * Turns on or off speech recognition
 	 * @param {bool} start
