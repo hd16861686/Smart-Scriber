@@ -21,6 +21,10 @@ html, body {
 }
 
 
+.meeting-creator {
+	@include display-flex;
+  @include justify-content(center);
+}
 #meeting-form {
 	@include display-flex;
   @include flex-direction(column);

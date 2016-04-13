@@ -20,6 +20,14 @@ html, body {
 }
 
 /* line 24, ../sass/main.scss */
+.meeting-creator {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+/* line 28, ../sass/main.scss */
 #meeting-form {
   display: -webkit-flex;
   display: flex;
