@@ -1,11 +1,11 @@
-/* line 3, ../sass/main.scss */
+/* line 5, ../sass/main.scss */
 html, body {
   width: 0;
   height: 0;
   margin: 0;
 }
 
-/* line 9, ../sass/main.scss */
+/* line 11, ../sass/main.scss */
 #sidebar {
   display: -webkit-flex;
   display: flex;
@@ -16,4 +16,5 @@ html, body {
   height: 100%;
   color: white;
   box-sizing: border-box;
+  background-color: #049fd9;
 }

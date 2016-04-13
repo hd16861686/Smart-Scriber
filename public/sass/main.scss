@@ -1,5 +1,7 @@
 @import "compass/css3";
 
+$spark-blue : #049fd9;
+
 html, body {
 	width: 0;
 	height: 0;
@@ -15,4 +17,5 @@ html, body {
   height: 100%;
   color: white;
   box-sizing: border-box;
+  background-color: $spark-blue;
 }
