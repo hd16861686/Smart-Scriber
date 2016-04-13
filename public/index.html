@@ -19,7 +19,7 @@
       
       <div id="participant-container" participant ng-repeat="(streamID, stream) in participants"></div>
       <div id="sidebar">
-        <div meeting-creator></div>
+        <div class="meeting-creator" meeting-creator></div>
         <div id="transcripts-container" ng-controller="TranscriptCtrl">
           <div class="transcript-container" transcript ng-repeat="transcript in allTranscripts | orderBy: 'transcript.time'"></div>
         </div>
