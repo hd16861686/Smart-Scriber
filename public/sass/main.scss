@@ -19,3 +19,11 @@ html, body {
   box-sizing: border-box;
   background-color: $spark-blue;
 }
+
+
+#meeting-form {
+	@include display-flex;
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center);
+}
