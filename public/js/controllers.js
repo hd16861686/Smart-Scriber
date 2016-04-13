@@ -23,4 +23,16 @@ angular.module("SmartScribe.controllers", [])
 		
 	});
 
+}])
+.controller('TranscriptCtrl', ['$rootScope', '$timeout', "$scope", function($rootScope, $timeout, $scope){
+	$scope.allTranscripts = [];
+	/**
+	 * Add a new transcript to the transcript container
+	 * @param {object} transcriptObject
+	 */
+	$rootScope.$on("appendTranscript", function(e, transcriptObject){
+		$timeout(function(){
+			$scope.allTranscripts.push(transcriptObject);
+		});
+	});
 }]);
