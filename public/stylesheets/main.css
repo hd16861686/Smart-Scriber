@@ -25,9 +25,10 @@ html, body {
   display: flex;
   -webkit-justify-content: center;
   justify-content: center;
+  width: 100%;
 }
 
-/* line 28, ../sass/main.scss */
+/* line 29, ../sass/main.scss */
 #meeting-form {
   display: -webkit-flex;
   display: flex;
@@ -35,6 +36,4 @@ html, body {
   flex-direction: column;
   -webkit-align-items: center;
   align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
 }
