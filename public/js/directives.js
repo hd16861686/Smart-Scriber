@@ -36,4 +36,13 @@ angular.module("SmartScribe.directives", [])
 			
 		}
 	}
+})
+.directive('transcript', function(){
+	return {
+		restrict : "A",
+		templateUrl: "../templates/transcript.html",
+		link: function(scope, element, attrs) {
+			var time = scope.transcript.time;
+		}
+	}
 });
