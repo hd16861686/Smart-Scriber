@@ -1,6 +1,19 @@
-/* line 2, ../sass/main.scss */
+/* line 3, ../sass/main.scss */
 html, body {
   width: 0;
   height: 0;
   margin: 0;
+}
+
+/* line 9, ../sass/main.scss */
+#sidebar {
+  display: -webkit-flex;
+  display: flex;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  color: white;
+  box-sizing: border-box;
 }
