@@ -40,6 +40,11 @@ angular.module("SmartScribe.services", [])
 	      if (localStream.getID() !== stream.getID()) {
 
 	        room.subscribe(stream);
+	        // attach a listener for stream broadcast
+					stream.addEventListener("stream-data", function(e) {
+						// console.log("new data sent by " + e.stream.getID(), e);
+						$rootScope.$emit("appendTranscript", e.msg);
+					});
 	      }
 	    }
 	  };
@@ -81,11 +86,7 @@ angular.module("SmartScribe.services", [])
 				} else {
 					var streamArray = [stream];
 					subscribeToStreams(streamArray);
-					// attach a listener for stream broadcast
-					stream.addEventListener("stream-data", function(e) {
-						// console.log("new data sent by " + e.stream.getID(), e);
-						$rootScope.$emit("appendTranscript", e.msg);
-					});
+
 				}
 			});
 
