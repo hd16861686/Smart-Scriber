@@ -91,6 +91,15 @@ html, body {
 }
 
 /* line 26, ../sass/main.scss */
+.text-input {
+  padding: 5px 10px;
+  font-size: 1rem;
+  width: 100%;
+  border: none;
+  border-radius: 1px;
+}
+
+/* line 33, ../sass/main.scss */
 .meeting-creator {
   display: -webkit-flex;
   display: flex;
@@ -99,7 +108,7 @@ html, body {
   width: 100%;
 }
 
-/* line 31, ../sass/main.scss */
+/* line 38, ../sass/main.scss */
 #meeting-form {
   display: -webkit-flex;
   display: flex;
@@ -107,4 +116,20 @@ html, body {
   flex-direction: column;
   -webkit-align-items: center;
   align-items: center;
+}
+
+/* line 44, ../sass/main.scss */
+.label {
+  font-weight: 100;
+  margin-top: 10px 0 5px 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* line 50, ../sass/main.scss */
+.submit-button {
+  border-radius: 2px;
+  border: none;
+  width: 100%;
+  padding: 5px 0;
 }
