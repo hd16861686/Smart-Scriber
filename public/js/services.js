@@ -154,9 +154,7 @@ angular.module("SmartScribe.services", [])
 				} catch (err){
 					error(err);
 				}
-			}, function(err){
-				error(err);
-			});
+			}, error);
 		} catch(err) {
 			error(err);
 			
