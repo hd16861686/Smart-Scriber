@@ -27,6 +27,13 @@ html, body {
   background-color: $blue;
 }
 
+#application-wrapper {
+	@include display-flex;
+}
+
+.main-content {
+	@include flex(1 1 0);
+}
 
 .text-input {
 	padding: 5px 10px;
