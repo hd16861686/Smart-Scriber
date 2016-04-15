@@ -48,11 +48,13 @@ html, body {
 }
 .label {
 	font-weight:100;
-	margin-top: 10px 0 5px 0;
+	margin: 10px 0 5px 0;
 	width: 100%;
 	text-align: center;
 }
 .submit-button {
+	font-size: 1rem;
+	margin: 15px;
 	border-radius: 1px;
   border: none;
   width: 100%;
@@ -65,5 +67,8 @@ html, body {
   	box-shadow: 0 1px 0 $dark-gray;
   	background-color: $light-gray;
   	color: $gray;
+  	cursor: default;
+	  
+
   }
 }

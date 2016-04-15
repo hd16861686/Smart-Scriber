@@ -121,13 +121,15 @@ html, body {
 /* line 49, ../sass/main.scss */
 .label {
   font-weight: 100;
-  margin-top: 10px 0 5px 0;
+  margin: 10px 0 5px 0;
   width: 100%;
   text-align: center;
 }
 
 /* line 55, ../sass/main.scss */
 .submit-button {
+  font-size: 1rem;
+  margin: 15px;
   border-radius: 1px;
   border: none;
   width: 100%;
@@ -137,9 +139,10 @@ html, body {
   box-shadow: 0 1px 0 #398f38;
   background-color: #43A942;
 }
-/* line 64, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 .submit-button:disabled {
   box-shadow: 0 1px 0 #4F5051;
   background-color: #d7d7d8;
   color: #858688;
+  cursor: default;
 }
