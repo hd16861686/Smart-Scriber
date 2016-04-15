@@ -53,7 +53,7 @@ angular.module("SmartScribe.directives", [])
 			var timer;
 			var containerDims;
 			var numParticipants = element.children().length;
-
+			scope.videoDimensions = {};
 			/**
 			 * Sets the current dimensions 
 			 */
@@ -70,7 +70,7 @@ angular.module("SmartScribe.directives", [])
 			 * in the container while maintaing 16:9 ratio
 			 */
 			function calculateInnerDimensions() {
-
+				var videoDimensions = scope.videoDimensions;
 				var currentRatio = containerDims.width/containerDims.height;
 				switch(numParticipants) {
 					case 2:
