@@ -10,7 +10,7 @@ angular.module("SmartScribe.directives", [])
 				LicodeService.joinRoomWithName(meetingInfo.roomName, meetingInfo.userName, function(data){
 					scope.roomJoined = true;
 				}, function(err){
-					console.log("Error: Failed to join room");
+					console.log("Error: " + err);
 				});
 				
 			}
