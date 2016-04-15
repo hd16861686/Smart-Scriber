@@ -68,7 +68,7 @@
   font-weight: 900;
   font-style: italic;
 }
-/* line 6, ../sass/main.scss */
+/* line 7, ../sass/main.scss */
 html, body {
   width: 0;
   height: 0;
@@ -76,7 +76,7 @@ html, body {
   font-family: CiscoSans;
 }
 
-/* line 13, ../sass/main.scss */
+/* line 14, ../sass/main.scss */
 #sidebar {
   display: -webkit-flex;
   display: flex;
@@ -90,7 +90,7 @@ html, body {
   background-color: #049fd9;
 }
 
-/* line 26, ../sass/main.scss */
+/* line 27, ../sass/main.scss */
 .text-input {
   padding: 5px 10px;
   font-size: 1rem;
@@ -99,7 +99,7 @@ html, body {
   border-radius: 1px;
 }
 
-/* line 33, ../sass/main.scss */
+/* line 34, ../sass/main.scss */
 .meeting-creator {
   display: -webkit-flex;
   display: flex;
@@ -108,7 +108,7 @@ html, body {
   width: 100%;
 }
 
-/* line 38, ../sass/main.scss */
+/* line 39, ../sass/main.scss */
 #meeting-form {
   display: -webkit-flex;
   display: flex;
@@ -118,7 +118,7 @@ html, body {
   align-items: center;
 }
 
-/* line 44, ../sass/main.scss */
+/* line 45, ../sass/main.scss */
 .label {
   font-weight: 100;
   margin-top: 10px 0 5px 0;
@@ -126,10 +126,18 @@ html, body {
   text-align: center;
 }
 
-/* line 50, ../sass/main.scss */
+/* line 51, ../sass/main.scss */
 .submit-button {
-  border-radius: 2px;
+  border-radius: 1px;
   border: none;
   width: 100%;
   padding: 5px 0;
+  cursor: pointer;
+  color: white;
+  background-color: #43A942;
+}
+/* line 59, ../sass/main.scss */
+.submit-button:disabled {
+  background-color: initial;
+  background-color: initial;
 }

@@ -1,7 +1,8 @@
 @import "compass/css3";
 @import "../Cisco_Fonts/CiscoSans";
 
-$spark-blue : #049fd9;
+$blue : #049fd9;
+$green : #43A942;
 
 html, body {
 	width: 0;
@@ -19,7 +20,7 @@ html, body {
   height: 100%;
   color: white;
   box-sizing: border-box;
-  background-color: $spark-blue;
+  background-color: $blue;
 }
 
 
@@ -48,8 +49,15 @@ html, body {
 	text-align: center;
 }
 .submit-button {
-	border-radius: 2px;
+	border-radius: 1px;
   border: none;
   width: 100%;
   padding: 5px 0;
+  cursor: pointer;
+  color: white;
+  background-color: $green;
+  &:disabled {
+  	background-color: initial;
+  	background-color: initial;
+  }
 }
