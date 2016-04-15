@@ -7,12 +7,12 @@ angular.module("SmartScribe.directives", [])
 			scope.meetingInfo = {};
 			scope.joinRoom = function(){
 				var meetingInfo = scope.meetingInfo;
-				var roomJoinSuccess = LicodeService.joinRoomWithName(meetingInfo.roomName, meetingInfo.userName);
-				if(roomJoinSuccess) {
+				LicodeService.joinRoomWithName(meetingInfo.roomName, meetingInfo.userName, function(data){
 					scope.roomJoined = true;
-				} else {
+				}, function(err){
 					console.log("Error: Failed to join room");
-				}
+				});
+				
 			}
 		}
 	}
