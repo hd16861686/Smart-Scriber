@@ -45,4 +45,27 @@ angular.module("SmartScribe.directives", [])
 			var time = scope.transcript.time;
 		}
 	}
+})
+.directive('videosContainer', function($window, $timeout){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+			var timer;
+			function setDimensions() {
+				scope.containerDims = {
+					width: $window.offsetWidth,
+					height: $window.offsetHeight
+				};
+			}
+			setDimensions();
+
+			angular.element($window).bind("resize", function(){
+				if(timer){
+					$timeout.cancel(timer);
+				}
+				timer = $timeout(setDimensions, 250);
+			});
+
+		}
+	}
 });
