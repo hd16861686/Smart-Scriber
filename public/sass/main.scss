@@ -3,6 +3,10 @@
 
 $blue : #049fd9;
 $green : #43A942;
+$dark-green : #398f38;
+$gray : #858688;
+$light-gray : #d7d7d8;
+$dark-gray : #4F5051;
 
 html, body {
 	width: 0;
@@ -55,9 +59,11 @@ html, body {
   padding: 5px 0;
   cursor: pointer;
   color: white;
+  box-shadow: 0 1px 0 $dark-green;
   background-color: $green;
   &:disabled {
-  	background-color: initial;
-  	background-color: initial;
+  	box-shadow: 0 1px 0 $dark-gray;
+  	background-color: $light-gray;
+  	color: $gray;
   }
 }
