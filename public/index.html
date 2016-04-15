@@ -15,9 +15,11 @@
     <div id="myVideo" style="width:320px; height: 240px;">
     </div> -->
     <div id="application-wrapper" ng-if="isChrome" >
-      <div id="my-video"></div>
+      <div class="main-content">
+        <div id="my-video"></div>
+        <div id="participant-container" participant ng-repeat="(streamID, stream) in participants"></div>
+      </div>
       
-      <div id="participant-container" participant ng-repeat="(streamID, stream) in participants"></div>
       <div id="sidebar">
         <div class="meeting-creator" meeting-creator></div>
         <div id="transcripts-container" ng-controller="TranscriptCtrl">
