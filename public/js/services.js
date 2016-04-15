@@ -142,7 +142,7 @@ angular.module("SmartScribe.services", [])
 	 * @param {string} userName
 	 * @returns {boolean}
 	 */
-	this.joinRoomWithName = function(room, userName){
+	this.joinRoomWithName = function(room, userName, next, error){
 		try {
 			createToken(room, userName, function(response){
 				var token = response.data;
@@ -150,16 +150,16 @@ angular.module("SmartScribe.services", [])
 				try {
 					configLocalStream(room);
 					localStream.init();
-					return true;
+					next();
 				} catch (err){
-					console.log("Error: " + err);
+					error(err);
 				}
 			}, function(err){
-				console.log("Could not create token : ", err);
-				return false;
+				error(err);
 			});
 		} catch(err) {
-			console.log("Error joining room: ", err);
+			error(err);
+			
 		}
 		
 	};
