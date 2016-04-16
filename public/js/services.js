@@ -261,4 +261,9 @@ angular.module("SmartScribe.services", [])
 			recognition.stop();
 		}
 	};
+
+	$rootScope.$on('stoppedSpeaking', function(){
+		this.toggleRecognition(false);
+	});
+	
 }]);
