@@ -61,6 +61,8 @@ angular.module("SmartScribe.directives", [])
 			 * Sets the current dimensions 
 			 */
 			function setDimensions() {
+				videoDimensions.width = "inherit";
+				videoDimensions.height = "inherit";
 				containerDims = {
 					width: element[0].offsetWidth,
 					height: element[0].offsetHeight
