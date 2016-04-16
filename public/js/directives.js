@@ -32,6 +32,7 @@ angular.module("SmartScribe.directives", [])
 			$timeout(function(){
 				// Play the stream when participant element is created
 				scope.stream.play(scope.streamID);
+				scope.$emit("updateVideosContainer");
 			});
 			
 		}
@@ -119,7 +120,7 @@ angular.module("SmartScribe.directives", [])
 				}
 				timer = $timeout(setDimensions, 250);
 			});
-			scope.$on("newParticipant", function(){
+			scope.$on("updateVideosContainer", function(){
 				$timeout(function(){
 					var numParticipants = element.children().length;
 					calculateInnerDimensions();
