@@ -76,18 +76,24 @@ html, body {
   font-family: CiscoSans;
 }
 
-/* line 18, ../sass/main.scss */
+/* line 19, ../sass/main.scss */
+.default-flex {
+  -webkit-flex: 1 1 0;
+  flex: 1 1 0;
+}
+
+/* line 22, ../sass/main.scss */
 .small-meta {
   font-size: 0.8rem;
   font-weight: 300;
 }
 
-/* line 22, ../sass/main.scss */
+/* line 26, ../sass/main.scss */
 .inline {
   display: inline;
 }
 
-/* line 26, ../sass/main.scss */
+/* line 30, ../sass/main.scss */
 #sidebar {
   display: -webkit-flex;
   display: flex;
@@ -102,14 +108,14 @@ html, body {
   background-color: #049fd9;
 }
 
-/* line 38, ../sass/main.scss */
+/* line 42, ../sass/main.scss */
 #application-wrapper {
   display: -webkit-flex;
   display: flex;
   height: 100%;
 }
 
-/* line 43, ../sass/main.scss */
+/* line 47, ../sass/main.scss */
 .main-content {
   display: -webkit-flex;
   display: flex;
@@ -122,7 +128,7 @@ html, body {
   overflow: hidden;
 }
 
-/* line 51, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 .text-input {
   padding: 5px 10px;
   font-size: 1rem;
@@ -131,7 +137,7 @@ html, body {
   border-radius: 1px;
 }
 
-/* line 58, ../sass/main.scss */
+/* line 62, ../sass/main.scss */
 .meeting-creator {
   display: -webkit-flex;
   display: flex;
@@ -140,7 +146,7 @@ html, body {
   width: 100%;
 }
 
-/* line 63, ../sass/main.scss */
+/* line 67, ../sass/main.scss */
 #meeting-form {
   display: -webkit-flex;
   display: flex;
@@ -150,7 +156,7 @@ html, body {
   align-items: center;
 }
 
-/* line 69, ../sass/main.scss */
+/* line 73, ../sass/main.scss */
 .label {
   font-weight: 100;
   margin: 10px 0 5px 0;
@@ -158,7 +164,7 @@ html, body {
   text-align: center;
 }
 
-/* line 75, ../sass/main.scss */
+/* line 79, ../sass/main.scss */
 .submit-button {
   font-size: 1rem;
   margin: 15px;
@@ -171,7 +177,7 @@ html, body {
   box-shadow: 0 1px 0 #398f38;
   background-color: #43A942;
 }
-/* line 86, ../sass/main.scss */
+/* line 90, ../sass/main.scss */
 .submit-button:disabled {
   box-shadow: 0 1px 0 #4F5051;
   background-color: #d7d7d8;
@@ -179,11 +185,11 @@ html, body {
   cursor: default;
 }
 
-/* line 96, ../sass/main.scss */
+/* line 100, ../sass/main.scss */
 .licode-video {
   transition: width 0.2s ease-out, height 0.2s ease-out;
 }
-/* line 98, ../sass/main.scss */
+/* line 102, ../sass/main.scss */
 .licode-video video {
   -moz-transform: translate(-50%, -50%) !important;
   -ms-transform: translate(-50%, -50%) !important;
@@ -196,12 +202,16 @@ html, body {
   height: 100% !important;
 }
 
-/* line 118, ../sass/main.scss */
+/* line 122, ../sass/main.scss */
 #transcript-section {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
   height: 100%;
 }
 
-/* line 122, ../sass/main.scss */
+/* line 127, ../sass/main.scss */
 .transcripts-container {
   background-color: white;
   color: gray;
@@ -210,7 +220,7 @@ html, body {
   overflow: auto;
 }
 
-/* line 129, ../sass/main.scss */
+/* line 134, ../sass/main.scss */
 .transcript-container {
   padding: 10px 0;
 }
