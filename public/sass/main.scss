@@ -15,6 +15,14 @@ html, body {
 	font-family: CiscoSans;
 }
 
+.small-meta {
+	font-size: 0.8rem;
+  font-weight: 300;
+}
+.inline {
+	display: inline;
+}
+
 #sidebar {
 	@include display-flex;
 	@include flex-direction(column);
@@ -117,4 +125,7 @@ html, body {
   box-sizing: border-box;
   padding: 10px;
   overflow: auto;
+}
+.transcript-container {
+	padding: 10px 0;
 }
