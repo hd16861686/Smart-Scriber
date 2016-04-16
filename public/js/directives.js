@@ -110,7 +110,7 @@ angular.module("SmartScribe.directives", [])
 				}
 			};
 
-			setDimensions();
+			
 			angular.element($window).bind("resize", function(){
 				if(timer){
 					$timeout.cancel(timer);
@@ -124,6 +124,9 @@ angular.module("SmartScribe.directives", [])
 				});
 			});
 
+			$timeout(function(){
+				setDimensions();
+			});
 		}
 	}
 });
