@@ -1,51 +1,184 @@
-/*
-Error: Invalid CSS after "...e(-50%, -50%)) ": expected "}", was "!important;"
-        on line 90 of /Users/tingche/node/smart-scribe/public/sass/main.scss
+@font-face {
+  font-family: 'CiscoSans';
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTThin.ttf");
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTThin.ttf") format("truetype"), url("./../../Cisco_Fonts/CiscoSans OTF/CiscoSansThin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CiscoSans';
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTExtraLight.ttf");
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTExtraLight.ttf") format("truetype"), url("./../../Cisco_Fonts/CiscoSans OTF/CiscoSansExtraLight.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CiscoSans';
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTRegular.ttf");
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTRegular.ttf") format("truetype"), url("./../../Cisco_Fonts/CiscoSans OTF/CiscoSansRegular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CiscoSans';
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTBold.ttf");
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTBold.ttf") format("truetype"), url("./../../Cisco_Fonts/CiscoSans OTF/CiscoSansBold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CiscoSans';
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTHeavy.ttf");
+  src: url("/./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTHeavy.ttf") format("truetype"), url("./../../Cisco_Fonts/CiscoSans OTF/CiscoSansHeavy.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CiscoSans';
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTThinOblique.ttf");
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTThinOblique.ttf") format("truetype"), url("./../../Cisco_Fonts/CiscoSans OTF/CiscoSansThinOblique.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'CiscoSans';
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTExtraLightOblique.ttf");
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTExtraLightOblique.ttf") format("truetype"), url("./../../Cisco_Fonts/CiscoSans OTF/CiscoSansExtraLightOblique.otf") format("opentype");
+  font-weight: thin;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'CiscoSans';
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTRegularOblique.ttf");
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTRegularOblique.ttf") format("truetype"), url("./../../Cisco_Fonts/CiscoSans OTF/CiscoSansRegularOblique.otf") format("opentype");
+  font-weight: italic;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'CiscoSans';
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTBoldOblique.ttf");
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTBoldOblique.ttf") format("truetype"), url("./../../Cisco_Fonts/CiscoSans OTF/CiscoSansBoldOblique.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'CiscoSans';
+  src: url("./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTHeavyOblique.ttf");
+  src: url("/./../../Cisco_Fonts/CiscoSans TTF/CiscoSansTTHeavyOblique.ttf") format("truetype"), url("./../../Cisco_Fonts/CiscoSans OTF/CiscoSansHeavyOblique.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+/* line 11, ../sass/main.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: CiscoSans;
+}
 
-85: }
-86: 
-87: .licode-video {
-88: 	transition: width 0.2s ease-out, height 0.2s ease-out;
-89: 	video {
-90: 		@include transform(translate(-50%, -50%)) !important;
-91: 	  position: absolute !important;
-92: 		left: 50% !important;
-93: 		top: 50% !important;
-94: 		width: 100% !important;
-95: 		height: 100% !important;
+/* line 18, ../sass/main.scss */
+#sidebar {
+  display: -webkit-flex;
+  display: flex;
+  padding: 20px;
+  position: relative;
+  width: 300px;
+  height: 100%;
+  color: white;
+  box-sizing: border-box;
+  background-color: #049fd9;
+}
 
-Backtrace:
-/Users/tingche/node/smart-scribe/public/sass/main.scss:90
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:1162:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:1098:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:1093:in `tok!'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:640:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:708:in `declaration_or_ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:658:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:650:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:639:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:632:in `ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:657:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:650:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:117:in `stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/scss/parser.rb:42:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/engine.rb:393:in `_to_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/engine.rb:268:in `render'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:209:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/lib/sass/plugin/compiler.rb:328:in `block in watch'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/vendor/listen/lib/listen/listener.rb:252:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/vendor/listen/lib/listen/adapter.rb:254:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.14/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"...e(-50%, -50%)) \": expected \"}\", was \"!important;\"\A         on line 90 of /Users/tingche/node/smart-scribe/public/sass/main.scss\A \A 85: }\A 86: \A 87: .licode-video {\A 88: 	transition: width 0.2s ease-out, height 0.2s ease-out;\A 89: 	video {\A 90: 		@include transform(translate(-50%, -50%)) !important;\A 91: 	  position: absolute !important;\A 92: 		left: 50% !important;\A 93: 		top: 50% !important;\A 94: 		width: 100% !important;\A 95: 		height: 100% !important;"; }
+/* line 29, ../sass/main.scss */
+#application-wrapper {
+  display: -webkit-flex;
+  display: flex;
+  height: 100%;
+}
+
+/* line 34, ../sass/main.scss */
+.main-content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex: 1 1 0;
+  flex: 1 1 0;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* line 42, ../sass/main.scss */
+.text-input {
+  padding: 5px 10px;
+  font-size: 1rem;
+  width: 100%;
+  border: none;
+  border-radius: 1px;
+}
+
+/* line 49, ../sass/main.scss */
+.meeting-creator {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* line 54, ../sass/main.scss */
+#meeting-form {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+/* line 60, ../sass/main.scss */
+.label {
+  font-weight: 100;
+  margin: 10px 0 5px 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* line 66, ../sass/main.scss */
+.submit-button {
+  font-size: 1rem;
+  margin: 15px;
+  border-radius: 1px;
+  border: none;
+  width: 100%;
+  padding: 5px 0;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 1px 0 #398f38;
+  background-color: #43A942;
+}
+/* line 77, ../sass/main.scss */
+.submit-button:disabled {
+  box-shadow: 0 1px 0 #4F5051;
+  background-color: #d7d7d8;
+  color: #858688;
+  cursor: default;
+}
+
+/* line 87, ../sass/main.scss */
+.licode-video {
+  transition: width 0.2s ease-out, height 0.2s ease-out;
+}
+/* line 89, ../sass/main.scss */
+.licode-video video {
+  -moz-transform: translate(-50%, -50%) !important;
+  -ms-transform: translate(-50%, -50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+  transform: translate(-50%, -50%) !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  width: 100% !important;
+  height: 100% !important;
+}
