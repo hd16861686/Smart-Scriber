@@ -17,6 +17,7 @@ html, body {
 
 #sidebar {
 	@include display-flex;
+	@include flex-direction(column);
 	padding: 20px;
 	position: relative;
   width: 300px;
@@ -94,4 +95,26 @@ html, body {
 		width: 100% !important;
 		height: 100% !important;
 	}
+}
+
+
+
+
+
+
+
+
+
+
+
+#transcript-section {
+  height: 100%;
+  
+}
+.transcripts-container {
+  background-color: white;
+  color: gray;
+  box-sizing: border-box;
+  padding: 10px;
+  overflow: auto;
 }

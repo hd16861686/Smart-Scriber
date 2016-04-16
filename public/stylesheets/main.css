@@ -80,6 +80,8 @@ html, body {
 #sidebar {
   display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
   padding: 20px;
   position: relative;
   width: 300px;
@@ -89,14 +91,14 @@ html, body {
   background-color: #049fd9;
 }
 
-/* line 29, ../sass/main.scss */
+/* line 30, ../sass/main.scss */
 #application-wrapper {
   display: -webkit-flex;
   display: flex;
   height: 100%;
 }
 
-/* line 34, ../sass/main.scss */
+/* line 35, ../sass/main.scss */
 .main-content {
   display: -webkit-flex;
   display: flex;
@@ -109,7 +111,7 @@ html, body {
   overflow: hidden;
 }
 
-/* line 42, ../sass/main.scss */
+/* line 43, ../sass/main.scss */
 .text-input {
   padding: 5px 10px;
   font-size: 1rem;
@@ -118,7 +120,7 @@ html, body {
   border-radius: 1px;
 }
 
-/* line 49, ../sass/main.scss */
+/* line 50, ../sass/main.scss */
 .meeting-creator {
   display: -webkit-flex;
   display: flex;
@@ -127,7 +129,7 @@ html, body {
   width: 100%;
 }
 
-/* line 54, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 #meeting-form {
   display: -webkit-flex;
   display: flex;
@@ -137,7 +139,7 @@ html, body {
   align-items: center;
 }
 
-/* line 60, ../sass/main.scss */
+/* line 61, ../sass/main.scss */
 .label {
   font-weight: 100;
   margin: 10px 0 5px 0;
@@ -145,7 +147,7 @@ html, body {
   text-align: center;
 }
 
-/* line 66, ../sass/main.scss */
+/* line 67, ../sass/main.scss */
 .submit-button {
   font-size: 1rem;
   margin: 15px;
@@ -158,7 +160,7 @@ html, body {
   box-shadow: 0 1px 0 #398f38;
   background-color: #43A942;
 }
-/* line 77, ../sass/main.scss */
+/* line 78, ../sass/main.scss */
 .submit-button:disabled {
   box-shadow: 0 1px 0 #4F5051;
   background-color: #d7d7d8;
@@ -166,11 +168,11 @@ html, body {
   cursor: default;
 }
 
-/* line 87, ../sass/main.scss */
+/* line 88, ../sass/main.scss */
 .licode-video {
   transition: width 0.2s ease-out, height 0.2s ease-out;
 }
-/* line 89, ../sass/main.scss */
+/* line 90, ../sass/main.scss */
 .licode-video video {
   -moz-transform: translate(-50%, -50%) !important;
   -ms-transform: translate(-50%, -50%) !important;
@@ -181,4 +183,18 @@ html, body {
   top: 50% !important;
   width: 100% !important;
   height: 100% !important;
+}
+
+/* line 110, ../sass/main.scss */
+#transcript-section {
+  height: 100%;
+}
+
+/* line 114, ../sass/main.scss */
+.transcripts-container {
+  background-color: white;
+  color: gray;
+  box-sizing: border-box;
+  padding: 10px;
+  overflow: auto;
 }
