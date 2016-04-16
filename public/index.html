@@ -16,8 +16,8 @@
     </div> -->
     <div id="application-wrapper" ng-if="isChrome" >
       <div class="main-content" videos-container>
-        <div id="my-video" ng-style="{width: {{videoDimensions.width}} height: {{videoDimensions.height}}}"></div>
-        <div id="participant-container" ng-style="{width: {{videoDimensions.width}} height: {{videoDimensions.height}}}" participant ng-repeat="(streamID, stream) in participants"></div>
+        <div id="my-video" ng-style="{width: {{videoDimensions.width + 'px'}} height: {{videoDimensions.height + 'px'}}}"></div>
+        <div id="participant-container" ng-style="{width: {{videoDimensions.width + 'px'}} height: {{videoDimensions.height + 'px'}}}" participant ng-repeat="(streamID, stream) in participants"></div>
       </div>
       
       <div id="sidebar">
