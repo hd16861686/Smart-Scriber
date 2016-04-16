@@ -182,7 +182,7 @@ angular.module("SmartScribe.services", [])
 
 }])
 .service("SpeechRecognition", ["$rootScope", function($rootScope){
-	var disableRecognition = false;
+	var disableRecognition = true;
 	var recognition = new webkitSpeechRecognition();
 	var finalTranscript = '';
 	var self = this;
