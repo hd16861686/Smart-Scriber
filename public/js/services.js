@@ -263,7 +263,7 @@ angular.module("SmartScribe.services", [])
 	};
 
 	$rootScope.$on('stoppedSpeaking', function(){
-		this.toggleRecognition(false);
+		self.toggleRecognition(false);
 	});
 
 }]);
