@@ -54,7 +54,7 @@ angular.module("SmartScribe.services", [])
 		 * Event listener for when user enables mic + video access
 		 */
 		localStream.addEventListener("access-accepted", function(){
-			speechEvents = hark(localMediaStream, {});
+			speechEvents = hark(localStream.stream, {});
 	    speechEvents.on('stopped_speaking', function(){
 	    	console.log("stopped speaking");
 	    	$rootScope.$emit('stoppedSpeaking');
@@ -265,5 +265,5 @@ angular.module("SmartScribe.services", [])
 	$rootScope.$on('stoppedSpeaking', function(){
 		this.toggleRecognition(false);
 	});
-	
+
 }]);
