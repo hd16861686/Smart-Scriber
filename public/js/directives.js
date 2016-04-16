@@ -124,7 +124,7 @@ angular.module("SmartScribe.directives", [])
 			});
 			scope.$on("updateVideosContainer", function(){
 				$timeout(function(){
-					var numParticipants = element.children().length;
+					numParticipants = element.children().length;
 					calculateInnerDimensions();
 				});
 			});
