@@ -86,4 +86,13 @@ html, body {
 
 .licode-video {
 	transition: width 0.2s ease-out, height 0.2s ease-out;
+	video {
+		@include transform(translate(-50%, -50%));
+
+	  position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 100%;
+		height: 100%;
+	}
 }
