@@ -1,3 +1,4 @@
+var disableRecognition = false;
 angular.module("SmartScribe.services", [])
 .service('LicodeService', ["$http", "$rootScope", "SpeechRecognition", function($http, $rootScope, SpeechRecognition){
 	var serverUrl = "/";
@@ -182,7 +183,7 @@ angular.module("SmartScribe.services", [])
 
 }])
 .service("SpeechRecognition", ["$rootScope", function($rootScope){
-	var disableRecognition = true;
+	
 	var recognition = new webkitSpeechRecognition();
 	var finalTranscript = '';
 	var self = this;
