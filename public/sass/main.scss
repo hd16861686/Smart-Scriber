@@ -33,7 +33,6 @@ html, body {
 
 .main-content {
 	@include display-flex;
-  @include flex-direction(column);
 	@include flex(1 1 0);
 	@include justify-content(center);
   @include align-items(center);
