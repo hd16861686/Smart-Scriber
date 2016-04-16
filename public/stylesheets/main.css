@@ -98,6 +98,10 @@ html, body {
 
 /* line 34, ../sass/main.scss */
 .main-content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
   -webkit-flex: 1 1 0;
   flex: 1 1 0;
   -webkit-justify-content: center;
@@ -106,7 +110,7 @@ html, body {
   align-items: center;
 }
 
-/* line 40, ../sass/main.scss */
+/* line 42, ../sass/main.scss */
 .text-input {
   padding: 5px 10px;
   font-size: 1rem;
@@ -115,7 +119,7 @@ html, body {
   border-radius: 1px;
 }
 
-/* line 47, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 .meeting-creator {
   display: -webkit-flex;
   display: flex;
@@ -124,7 +128,7 @@ html, body {
   width: 100%;
 }
 
-/* line 52, ../sass/main.scss */
+/* line 54, ../sass/main.scss */
 #meeting-form {
   display: -webkit-flex;
   display: flex;
@@ -134,7 +138,7 @@ html, body {
   align-items: center;
 }
 
-/* line 58, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 .label {
   font-weight: 100;
   margin: 10px 0 5px 0;
@@ -142,7 +146,7 @@ html, body {
   text-align: center;
 }
 
-/* line 64, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 .submit-button {
   font-size: 1rem;
   margin: 15px;
@@ -155,7 +159,7 @@ html, body {
   box-shadow: 0 1px 0 #398f38;
   background-color: #43A942;
 }
-/* line 75, ../sass/main.scss */
+/* line 77, ../sass/main.scss */
 .submit-button:disabled {
   box-shadow: 0 1px 0 #4F5051;
   background-color: #d7d7d8;
