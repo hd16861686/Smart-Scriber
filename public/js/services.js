@@ -9,7 +9,7 @@ angular.module("SmartScribe.services", [])
 		audio : true,
 		video : true,
 		data : true,
-		videoSize: [1024, 576, 1024, 576]
+		videoSize: [640, 360, 640, 360]
 	};
 
 	/**
