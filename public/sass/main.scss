@@ -36,6 +36,7 @@ html, body {
 	@include flex(1 1 0);
 	@include justify-content(center);
   @include align-items(center);
+  overflow: hidden;
 }
 
 .text-input {
@@ -81,4 +82,8 @@ html, body {
 	  
 
   }
+}
+
+.licode-video {
+	transition: width 0.2s ease-out, height 0.2s ease-out;
 }
