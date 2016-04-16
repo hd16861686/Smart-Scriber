@@ -46,6 +46,7 @@ angular.module("SmartScribe.directives", [])
 		templateUrl: "../templates/transcript.html",
 		link: function(scope, element, attrs) {
 			var time = scope.transcript.time;
+			scope.formattedTime = moment(time).format('h:mm:ss a');
 		}
 	}
 })
