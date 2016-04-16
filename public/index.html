@@ -22,8 +22,10 @@
       
       <div id="sidebar">
         <div class="meeting-creator" meeting-creator></div>
-        <div id="transcripts-container" ng-controller="TranscriptCtrl">
-          <div class="transcript-container" transcript ng-repeat="transcript in allTranscripts | orderBy: 'transcript.time'"></div>
+        <div id="transcript-section" ng-controller="TranscriptCtrl">
+          <div class="transcripts-container">
+            <div class="transcript-container" transcript ng-repeat="transcript in allTranscripts | orderBy: 'transcript.time'"></div>
+          </div>
         </div>
       </div>
 
