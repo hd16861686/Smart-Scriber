@@ -34,7 +34,9 @@ angular.module("SmartScribe.directives", [])
 				scope.stream.play(scope.streamID);
 				scope.$emit("updateVideosContainer");
 			});
-			
+			scope.$on('$destroy', function(){
+				scope.$emit("updateVideosContainer");
+			});
 		}
 	}
 })
