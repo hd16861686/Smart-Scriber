@@ -71,15 +71,16 @@ angular.module("SmartScribe.directives", [])
 			 */
 			function calculateInnerDimensions() {
 				var videoDimensions = scope.videoDimensions;
-
+				videoDimensions.width = containerDims.width;
+				videoDimensions.height = containerDims.height;
 				var currentRatio = containerDims.width/containerDims.height;
 				switch(numParticipants) {
 					case 2:
 						if(currentRatio > (16*2/9)) {
-							videoDimensions.width = 16*containerDims.height/9;
+							videoDimensions.width = 16*videoDimensions.height/9;
 						} else {
-							videoDimensions.width = containerDims.width/2;
-							videoDimensions.height =  (9/16) * containerDims.width;
+							videoDimensions.width = videoDimensions.width/2;
+							videoDimensions.height =  (9/16) * videoDimensions.width;
 							
 						}
 					
@@ -87,26 +88,26 @@ angular.module("SmartScribe.directives", [])
 					case 5:
 					case 6:
 						if(currentRatio > (16*2/9)*(3/2)) {
-							videoDimensions.height = containerDims.height/2;
-							videoDimensions.width = 16*containerDims.height/9;
+							videoDimensions.height = videoDimensions.height/2;
+							videoDimensions.width = 16*videoDimensions.height/9;
 						} else {
-							videoDimensions.width = containerDims.width/3;
-							videoDimensions.height = (9/16) * containerDims.width;
+							videoDimensions.width = videoDimensions.width/3;
+							videoDimensions.height = (9/16) * videoDimensions.width;
 						}
 						break;
 					default:
 						// current doc dims are wider than 16:9, use height to constrain
 						if(currentRatio > 16/9) {
-							videoDimensions.width = 16*containerDims.height/9;
+							videoDimensions.width = 16*videoDimensions.height/9;
 						} else {
-							videoDimensions.height = 9*containerDims.width/16;
+							videoDimensions.height = 9*videoDimensions.width/16;
 						}
 						if(numParticipants > 6){
-							videoDimensions.width = containerDims.width/3;
-							videoDimensions.height = containerDims.height/3;
+							videoDimensions.width = videoDimensions.width/3;
+							videoDimensions.height = videoDimensions.height/3;
 						} else if(numParticipants === 3 || numParticipants === 4) {
-							videoDimensions.width = containerDims.width/2;
-							videoDimensions.height = containerDims.height/2;
+							videoDimensions.width = videoDimensions.width/2;
+							videoDimensions.height = videoDimensions.height/2;
 						}
 				}
 			};
