@@ -26,7 +26,7 @@
         <div id="transcript-section" ng-controller="TranscriptCtrl" ng-if="roomJoined">
           <h3>Most Recent Dialogue</h3>
           <div class="transcripts-container">
-            <div class="transcript-container" transcript ng-repeat="transcript in allTranscripts | orderBy: 'transcript.time'"></div>
+            <div class="transcript-container default-flex" transcript ng-repeat="transcript in allTranscripts | orderBy: 'transcript.time'"></div>
           </div>
         </div>
       </div>
