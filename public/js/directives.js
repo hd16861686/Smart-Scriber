@@ -59,8 +59,8 @@ angular.module("SmartScribe.directives", [])
 			 */
 			function setDimensions() {
 				containerDims = {
-					width: $window.offsetWidth,
-					height: $window.offsetHeight
+					width: element[0].offsetWidth,
+					height: element[0].offsetHeight
 				};
 				calculateInnerDimensions();
 			}
