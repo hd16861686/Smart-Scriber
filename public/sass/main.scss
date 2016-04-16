@@ -18,8 +18,7 @@ html, body {
 #sidebar {
 	@include display-flex;
 	padding: 20px;
-	position: absolute;
-  right: 0;
+	position: relative;
   width: 300px;
   height: 100%;
   color: white;
@@ -29,6 +28,7 @@ html, body {
 
 #application-wrapper {
 	@include display-flex;
+	height: 100%;
 }
 
 .main-content {

@@ -81,8 +81,7 @@ html, body {
   display: -webkit-flex;
   display: flex;
   padding: 20px;
-  position: absolute;
-  right: 0;
+  position: relative;
   width: 300px;
   height: 100%;
   color: white;
@@ -90,10 +89,11 @@ html, body {
   background-color: #049fd9;
 }
 
-/* line 30, ../sass/main.scss */
+/* line 29, ../sass/main.scss */
 #application-wrapper {
   display: -webkit-flex;
   display: flex;
+  height: 100%;
 }
 
 /* line 34, ../sass/main.scss */
