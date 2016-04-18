@@ -145,6 +145,7 @@ angular.module("SmartScribe.directives", [])
 			var domElement = element[0];
 			var offsetHeight;
 			var maxScrollTop;
+			var timer;
 			function getOffsetHeight() {
 				offsetHeight = domElement.offsetHeight;
 
