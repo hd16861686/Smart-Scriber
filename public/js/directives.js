@@ -138,12 +138,15 @@ angular.module("SmartScribe.directives", [])
 		}
 	}
 })
-.directive('autoScroll', function(){
+.directive('autoScroll', function($timeout){
 	return {
 		restrict: 'A',
 		link: function(scope, element, attrs) {
+			var domElement = element[0];
 			scope.$on("updateScroll", function(e) {
-				console.log(element);
+				$timeout(function(){
+					domElement.scrollTop = domElement.scrollHeight;
+				});
 
 			});
 		}
