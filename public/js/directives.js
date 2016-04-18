@@ -138,17 +138,32 @@ angular.module("SmartScribe.directives", [])
 		}
 	}
 })
-.directive('autoScroll', function($timeout){
+.directive('autoScroll', function($timeout, $window){
 	return {
 		restrict: 'A',
 		link: function(scope, element, attrs) {
 			var domElement = element[0];
+			var offsetHeight;
+			var maxScrollTop;
+			function getOffsetHeight() {
+				offsetHeight = domElement.offsetHeight;
+
+			};
 			scope.$on("updateScroll", function(e) {
 				$timeout(function(){
 					domElement.scrollTop = domElement.scrollHeight;
+					maxScrollTop = domElement.scrollHeight - offsetHeight;
 				});
 
 			});
+
+			angular.element($window).bind("resize", function(){
+				if(timer){
+					$timeout.cancel(timer);
+				}
+				timer = $timeout(getOffsetHeight, 250);
+			});
+			$timeout(getOffsetHeight);
 		}
 	}
 });
