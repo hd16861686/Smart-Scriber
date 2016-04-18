@@ -152,8 +152,12 @@ angular.module("SmartScribe.directives", [])
 			};
 			scope.$on("updateScroll", function(e) {
 				$timeout(function(){
-					domElement.scrollTop = domElement.scrollHeight;
 					maxScrollTop = domElement.scrollHeight - offsetHeight;
+					// move the scroll position automatically if the scroll position
+					// is already at the very bottom, otherwise leave it untouched
+					if(maxScrollTop === domElement.scrollTop) {
+						domElement.scrollTop = maxScrollTop;
+					}
 				});
 
 			});
