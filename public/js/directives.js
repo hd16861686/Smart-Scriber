@@ -47,6 +47,7 @@ angular.module("SmartScribe.directives", [])
 		link: function(scope, element, attrs) {
 			var time = scope.transcript.time;
 			scope.formattedTime = moment(time).format('h:mm:ss a');
+			scope.$emit("updateScroll");
 		}
 	}
 })
@@ -134,6 +135,14 @@ angular.module("SmartScribe.directives", [])
 			$timeout(function(){
 				setDimensions();
 			});
+		}
+	}
+})
+.directive('autoScroll', function(){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+			console.log(element);
 		}
 	}
 });
