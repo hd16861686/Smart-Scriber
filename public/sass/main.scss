@@ -45,6 +45,7 @@ html, body {
 }
 
 .main-content {
+	@include flex-wrap(wrap);
 	@include display-flex;
 	@include flex(1 1 0);
 	@include justify-content(center);
