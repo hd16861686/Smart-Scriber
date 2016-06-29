@@ -7,7 +7,7 @@ angular.module("SmartScribe.services", [])
 	var clientUsername;
 	var streamConfig = {
 		audio : true,
-		video : true,
+		video : false,
 		data : true,
 		videoSize: [640, 360, 640, 360]
 	};
